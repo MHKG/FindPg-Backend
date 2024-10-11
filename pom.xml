@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>FindPg-Backend</artifactId>
+    <artifactId>FindPg</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>FindPg-Backend</name>
+    <name>FindPg</name>
     <description>Demo project for Spring Boot</description>
     <url/>
     <licenses>
