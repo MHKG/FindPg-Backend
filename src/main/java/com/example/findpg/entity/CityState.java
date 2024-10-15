@@ -2,6 +2,11 @@ package com.example.findpg.entity;
 
 import jakarta.persistence.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "cities")
 public class CityState {
