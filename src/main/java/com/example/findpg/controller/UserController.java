@@ -1,9 +1,11 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.UserDAO;
+import com.example.findpg.entity.LoginRequest;
 import com.example.findpg.entity.User;
 import com.example.findpg.genericactionresponse.GenericActionResponse;
 import com.example.findpg.repository.UserRepository;
+import com.example.findpg.service.AuthService;
 import com.example.findpg.service.GenericMethods;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,6 +29,8 @@ public class UserController {
     @Autowired private UserDAO userDAO;
 
     @Autowired private UserRepository userRepository;
+
+    @Autowired private AuthService authService;
 
     private GenericActionResponse<User> validateUser(User user) {
         GenericActionResponse<User> response = new GenericActionResponse<>(false);
@@ -107,7 +111,7 @@ public class UserController {
             return response;
         }
 
-        boolean isAdded =
+        User user1 =
                 userDAO.updateUserDetails(
                         user.getName(),
                         user.getEmail(),
@@ -117,10 +121,23 @@ public class UserController {
                         user.getLanguages(),
                         user.getRole());
 
-        if (isAdded) {
+        if (!GenericMethods.isNullOrEmpty(user1.getName(), true)) {
+            boolean googleLogin;
+            LoginRequest loginRequest = new LoginRequest();
+            loginRequest.setEmail(user1.getEmail());
+            if (!GenericMethods.isNullOrEmpty(user1.getPassword(), true)) {
+                loginRequest.setPassword(user1.getPassword());
+                googleLogin = false;
+            } else {
+                loginRequest.setPassword("");
+                googleLogin = true;
+            }
+            authService.userLogin(loginRequest, googleLogin);
+
             response.setSuccess(true);
         } else {
             response.setErrmsg("Failed");
+            response.setSuccess(false);
         }
         return response;
     }
