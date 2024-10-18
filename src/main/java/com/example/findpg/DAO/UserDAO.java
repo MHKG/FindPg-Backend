@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public interface UserDAO {
-    boolean addUser(String phone_number);
+    void addUser(String phone_number);
 
     User getUserByPhoneNumber(String phone_number);
 
@@ -17,7 +17,7 @@ public interface UserDAO {
 
     int getOTP(String phone_number);
 
-    boolean updateUserDetails(
+    User updateUserDetails(
             String name,
             String email,
             String phone_number,

@@ -42,7 +42,7 @@ public class UserService implements UserDAO {
     @Autowired private UserRepository userRepository;
 
     @Override
-    public boolean addUser(String phone_number) {
+    public void addUser(String phone_number) {
         String generatedOTP = String.valueOf(Math.floor(1000 + Math.random() * 9000));
         Query query =
                 entityManager
@@ -50,7 +50,6 @@ public class UserService implements UserDAO {
                         .setParameter("phone_number", phone_number)
                         .setParameter("otp", generatedOTP);
         query.executeUpdate();
-        return true;
     }
 
     @Override
@@ -88,7 +87,7 @@ public class UserService implements UserDAO {
     }
 
     @Override
-    public boolean updateUserDetails(
+    public User updateUserDetails(
             String name,
             String email,
             String phone_number,
@@ -97,18 +96,17 @@ public class UserService implements UserDAO {
             String languages,
             String role) {
 
-        Query query =
-                entityManager
-                        .createNativeQuery(environment.getProperty("updateUser"))
-                        .setParameter("name", name)
-                        .setParameter("email", email)
-                        .setParameter("imageURL", imageUrl)
-                        .setParameter("address", address)
-                        .setParameter("languages", languages)
-                        .setParameter("role", role)
-                        .setParameter("phone_number", phone_number);
-        query.executeUpdate();
-        return true;
+        User user = userRepository.findByEmail(email).orElseThrow();
+        user.setName(name);
+        user.setAddress(address);
+        user.setLanguages(languages);
+        user.setRole(role);
+        user.setPhone_number(phone_number);
+        if (GenericMethods.isNullOrEmpty(user.getImageURL(), true)) {
+            user.setImageURL(imageUrl);
+        }
+
+        return userRepository.save(user);
     }
 
     @Override
