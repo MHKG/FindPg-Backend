@@ -1,12 +1,11 @@
 package com.example.findpg.controller;
 
-import com.example.findpg.DAO.UserDAO;
 import com.example.findpg.entity.LoginRequest;
 import com.example.findpg.entity.LoginResponse;
 import com.example.findpg.entity.User;
 import com.example.findpg.repository.UserRepository;
 import com.example.findpg.service.AuthService;
-import com.example.findpg.service.GenericMethods;
+import com.example.findpg.GenericMethods.GenericMethods;
 import com.example.findpg.util.JwtUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,11 @@ import java.util.Optional;
 @RequestMapping("/auth")
 public class AuthController {
 
-    @Autowired private com.example.findpg.DAO.UserDAO UserDAO;
-
     @Autowired private AuthService authService;
 
     @Autowired private UserRepository userRepository;
 
     @Autowired private JwtUtil jwtUtil;
-
-    @Autowired private UserDAO userDAO;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(

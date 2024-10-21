@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmailService implements EmailDAO {
+
     @Autowired private JavaMailSender javaMailSender;
+
     @Autowired private JwtUtil jwtUtil;
 
     @Override

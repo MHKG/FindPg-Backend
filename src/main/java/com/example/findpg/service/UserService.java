@@ -1,6 +1,7 @@
 package com.example.findpg.service;
 
 import com.example.findpg.DAO.UserDAO;
+import com.example.findpg.GenericMethods.GenericMethods;
 import com.example.findpg.entity.User;
 import com.example.findpg.repository.ImageUserRepository;
 import com.example.findpg.repository.UserRepository;

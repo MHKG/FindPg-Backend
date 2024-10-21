@@ -1,7 +1,6 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.PgDAO;
-import com.example.findpg.DAO.UserDAO;
 import com.example.findpg.entity.Amenities;
 import com.example.findpg.entity.Pg;
 import com.example.findpg.genericactionresponse.GenericActionResponse;
@@ -19,8 +18,6 @@ import java.util.Objects;
 public class PgController {
 
     @Autowired private PgDAO pgDAO;
-
-    @Autowired private UserDAO UserDAO;
 
     @PostMapping("/add")
     private GenericActionResponse<Pg> add(@RequestBody Pg pg) {
