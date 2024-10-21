@@ -1,9 +1,5 @@
 package com.example.findpg.config;
 
-import com.example.findpg.service.CustomUserDetailsService;
-import com.example.findpg.util.JwtUtil;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -19,10 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 public class SecurityConfig {
-
-    @Autowired private JwtUtil jwtUtil;
-
-    @Autowired private CustomUserDetailsService userDetailsService;
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {

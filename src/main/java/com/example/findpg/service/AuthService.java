@@ -8,7 +8,6 @@ import jakarta.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +19,6 @@ public class AuthService {
     @Autowired private UserRepository userRepository;
 
     @Autowired private PasswordEncoder passwordEncoder;
-
-    @Autowired private AuthenticationManager authenticationManager;
 
     @Value("${jwt.secret-key}")
     private String SECRET_KEY;

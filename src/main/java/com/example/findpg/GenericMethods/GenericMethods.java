@@ -1,4 +1,4 @@
-package com.example.findpg.service;
+package com.example.findpg.GenericMethods;
 
 import java.util.*;
 import java.util.regex.Pattern;

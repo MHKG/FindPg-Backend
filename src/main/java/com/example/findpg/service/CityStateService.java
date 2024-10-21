@@ -8,8 +8,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +17,6 @@ import java.util.List;
 public class CityStateService implements CityStateDAO {
 
     @PersistenceContext private EntityManager entityManager;
-
-    @Autowired private Environment environment;
 
     @SuppressWarnings("unchecked")
     @Override
