@@ -1,7 +1,6 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.ImageDAO;
-import com.example.findpg.DAO.RoomsDAO;
 import com.example.findpg.entity.Images;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -25,7 +24,6 @@ import java.util.Objects;
 public class ImageController {
 
     @Autowired private ImageDAO imageDAO;
-    @Autowired private RoomsDAO roomsDAO;
 
     @GetMapping(value = "/uploads/{imageName}", produces = MediaType.IMAGE_JPEG_VALUE)
     public void getImage(@PathVariable("imageName") String imageName, HttpServletResponse response)

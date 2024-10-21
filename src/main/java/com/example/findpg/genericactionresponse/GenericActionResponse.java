@@ -1,8 +1,13 @@
 package com.example.findpg.genericactionresponse;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 import java.util.Optional;
 
+@Getter
+@Setter
 public class GenericActionResponse<T> {
     protected Boolean success;
     protected List<T> message;
@@ -27,46 +32,6 @@ public class GenericActionResponse<T> {
         super();
         this.success = success;
         this.errmsg = errmsg;
-    }
-
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
-    public String getErrmsg() {
-        return errmsg;
-    }
-
-    public void setErrmsg(String errmsg) {
-        this.errmsg = errmsg;
-    }
-
-    public String getSuccessmsg() {
-        return successmsg;
-    }
-
-    public void setSuccessmsg(String successmsg) {
-        this.successmsg = successmsg;
-    }
-
-    public List<T> getMessage() {
-        return message;
-    }
-
-    public void setMessage(List<T> messages) {
-        this.message = messages;
-    }
-
-    public Boolean getAccessDenied() {
-        return accessDenied;
-    }
-
-    public void setAccessDenied(Boolean accessDenied) {
-        this.accessDenied = accessDenied;
     }
 
     @Override
