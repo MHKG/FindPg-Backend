@@ -1,5 +1,7 @@
 package com.example.findpg.config;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -41,7 +43,16 @@ public class SecurityConfig {
                                         .authenticated())
                 .addFilterBefore(
                         jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults())
+                .exceptionHandling(
+                        exceptions ->
+                                exceptions.authenticationEntryPoint(
+                                        (request, response, authException) -> {
+                                            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                                            response.setHeader(
+                                                    "WWW-Authenticate", ""); // Clear the header
+                                            response.getWriter().write("Unauthorized");
+                                        }));
 
         return http.build();
     }
