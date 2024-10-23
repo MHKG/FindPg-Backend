@@ -1,12 +1,12 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.UserDAO;
+import com.example.findpg.GenericMethods.GenericMethods;
 import com.example.findpg.entity.LoginRequest;
 import com.example.findpg.entity.User;
 import com.example.findpg.genericactionresponse.GenericActionResponse;
 import com.example.findpg.repository.UserRepository;
 import com.example.findpg.service.AuthService;
-import com.example.findpg.GenericMethods.GenericMethods;
 
 import jakarta.servlet.http.HttpServletResponse;
 

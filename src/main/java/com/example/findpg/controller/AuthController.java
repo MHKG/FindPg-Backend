@@ -1,11 +1,11 @@
 package com.example.findpg.controller;
 
+import com.example.findpg.GenericMethods.GenericMethods;
 import com.example.findpg.entity.LoginRequest;
 import com.example.findpg.entity.LoginResponse;
 import com.example.findpg.entity.User;
 import com.example.findpg.repository.UserRepository;
 import com.example.findpg.service.AuthService;
-import com.example.findpg.GenericMethods.GenericMethods;
 import com.example.findpg.util.JwtUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
