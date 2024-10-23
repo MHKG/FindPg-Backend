@@ -1,4 +1,4 @@
-package com.example.findpg.genericactionresponse;
+package com.example.findpg.GenericActionResponse;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
