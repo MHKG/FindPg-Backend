@@ -19,7 +19,7 @@ public class AmenitiesController {
     private GenericActionResponse<Amenities> add(@RequestBody Amenities amenities) {
         GenericActionResponse<Amenities> response = new GenericActionResponse<>(false);
 
-        boolean isAdded = false;
+        boolean isAdded;
 
         List<Amenities> checkIfAlreadyExisted =
                 amenitiesDAO.getByPgId(String.valueOf(amenities.getPg_id()));

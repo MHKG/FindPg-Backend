@@ -40,6 +40,7 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(SECRET_KEY));
     }
 
+    @SuppressWarnings("deprecation")
     public Claims extractClaims(String token) {
         return Jwts.parser().setSigningKey(getSigningKey()).parseClaimsJws(token).getBody();
     }
