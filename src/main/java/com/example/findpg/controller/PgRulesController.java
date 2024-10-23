@@ -19,11 +19,11 @@ public class PgRulesController {
     public GenericActionResponse<PgRules> addRules(@RequestBody PgRules pg_rules) {
         GenericActionResponse<PgRules> response = new GenericActionResponse<>(false);
 
-        boolean isAdded = false;
+        boolean isAdded;
 
-        List<PgRules> checkifAlreadyExisted =
+        List<PgRules> checkIfAlreadyExisted =
                 pgRulesDAO.getByPgId(String.valueOf(pg_rules.getPg_id()));
-        if (checkifAlreadyExisted.isEmpty()) {
+        if (checkIfAlreadyExisted.isEmpty()) {
             isAdded = pgRulesDAO.addRules(pg_rules);
         } else {
             isAdded = pgRulesDAO.updateRules(pg_rules);

@@ -20,11 +20,11 @@ public class RoomsController {
 
     @PostMapping("/add")
     public ResponseEntity<List<Rooms>> addRooms(@RequestBody String jsonData) {
-        List<Rooms> rooms = null;
+        List<Rooms> rooms;
         List<Rooms> finalList = null;
         try {
             JSONArray jsonArray = new JSONArray(jsonData);
-            boolean isAdded = false;
+            boolean isAdded;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject roomData = jsonArray.getJSONObject(i);
                 int pg_id = roomData.getInt("pg_id");

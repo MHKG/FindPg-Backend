@@ -23,6 +23,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 @Service
 @Transactional
@@ -125,7 +126,8 @@ public class UserService implements UserDAO {
     @Override
     public User uploadImage(MultipartFile image, String user_id) throws IOException {
 
-        String fileName = user_id + "." + image.getOriginalFilename().split("\\.")[1];
+        String fileName =
+                user_id + "." + Objects.requireNonNull(image.getOriginalFilename()).split("\\.")[1];
         Path filePath = Paths.get(uploadDir, fileName);
         Files.createDirectories(filePath.getParent());
         Files.write(filePath, image.getBytes());
