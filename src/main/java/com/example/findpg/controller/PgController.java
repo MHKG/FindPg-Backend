@@ -1,9 +1,9 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.PgDAO;
+import com.example.findpg.GenericActionResponse.GenericActionResponse;
 import com.example.findpg.entity.Amenities;
 import com.example.findpg.entity.Pg;
-import com.example.findpg.GenericActionResponse.GenericActionResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
