@@ -1,8 +1,8 @@
 package com.example.findpg.controller;
 
 import com.example.findpg.DAO.AmenitiesDAO;
-import com.example.findpg.entity.Amenities;
 import com.example.findpg.GenericActionResponse.GenericActionResponse;
+import com.example.findpg.entity.Amenities;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
