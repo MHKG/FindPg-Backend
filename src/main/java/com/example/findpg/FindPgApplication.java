@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FindpgApplication {
+public class FindPgApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FindpgApplication.class, args);
+        SpringApplication.run(FindPgApplication.class, args);
     }
 }
