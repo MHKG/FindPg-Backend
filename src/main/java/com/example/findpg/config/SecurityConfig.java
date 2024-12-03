@@ -32,12 +32,12 @@ public class SecurityConfig {
                                         .requestMatchers(
                                                 "/auth/**",
                                                 "/user_controller/profileImages/{imageName}",
-                                                "city_state_controller/getAll",
-                                                "image_controller/uploads/{imageName}",
-                                                "user_controller/uploadImage",
-                                                "user_controller/updateUserDetails",
-                                                "pg_controller/getAllLocations",
-                                                "email_controller/sendEmail")
+                                                "/city_state_controller/getAll",
+                                                "/image_controller/uploads/{imageName}",
+                                                "/user_controller/uploadImage",
+                                                "/user_controller/updateUserDetails",
+                                                "/pg_controller/getAllLocations",
+                                                "/email_controller/sendEmail")
                                         .permitAll()
                                         .anyRequest()
                                         .authenticated())
